@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=GNOME-TERMINAL
+Comment=
+Exec=gnome-terminal --working-directory=/home/cit/robocup/for2050/src/pyfiles/
+StartupNotify=false
+Hidden=false

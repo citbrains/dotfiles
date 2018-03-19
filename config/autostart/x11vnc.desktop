@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=X11VNC
+Comment=
+Exec=x11vnc -nopw -display :0 -rfbport 5900 -geometry 1600x900 -forever -loop -xdamage -repeat -shared
+StartupNotify=false
+Terminal=false
+Hidden=false
