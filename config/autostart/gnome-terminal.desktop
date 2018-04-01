@@ -3,6 +3,6 @@ Encoding=UTF-8
 Type=Application
 Name=GNOME-TERMINAL
 Comment=
-Exec=gnome-terminal --geometry=80x24+70+30 --working-directory=/home/cit/robocup/for2050/src/pyfiles/
+Exec=gnome-terminal --geometry=80x24+70+30 --working-directory=/home/cit/robocup/for2050/src/pyfiles
 StartupNotify=false
 Hidden=false
