@@ -129,9 +129,9 @@ HR42_SCRIQT_DIR="/etc/init.d/hr42"
 HR46_SCRIQT_DIR="/etc/init.d/hr46"
 ERROR_HR_SCRIQT_NOT="echo 'hr script is not'"
 
-if [[ $HOSTNAME = cit14[0-9] ]] && [[ -e $HR42_DIR ]]; then
+if [[ $HOSTNAME = cit14[0-9] ]] && [[ -e $HR42_SCRIQT_DIR ]]; then
 	HR_SCRIQT="sudo $HR42_SCRIQT_DIR"
-elif [[ $HOSTNAME = cit16[0-9] ]] && [[ -e $HR46_DIR ]]; then
+elif [[ $HOSTNAME = cit16[0-9] ]] && [[ -e $HR46_SCRIQT_DIR ]]; then
 	HR_SCRIQT="sudo $HR46_SCRIQT_DIR"
 else
 	HR_SCRIQT=$ERROR_HR_SCRIQT_NOT
