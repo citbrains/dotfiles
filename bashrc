@@ -124,4 +124,27 @@ export LD_LIBRARY_PATH="/usr/local/cuda-8.0/lib64:$LD_LIBRARY_PATH"
 
 # Alias
 alias cmakeclean='rm -r CMakeCache.txt cmake_install.cmake; rm -r CMakeFiles; rm Makefile'
-alias hr="sudo /etc/init.d/hr42 restart"
+
+HR42_SCRIQT_DIR="/etc/init.d/hr42"
+HR46_SCRIQT_DIR="/etc/init.d/hr46"
+ERROR_HR_SCRIQT_NOT="echo 'hr script is not'"
+
+if [[ $HOSTNAME = cit14[0-9] ]] && [[ -e $HR42_DIR ]]; then
+	HR_SCRIQT="sudo $HR42_SCRIQT_DIR"
+elif [[ $HOSTNAME = cit16[0-9] ]] && [[ -e $HR46_DIR ]]; then
+	HR_SCRIQT="sudo $HR46_SCRIQT_DIR"
+else
+	HR_SCRIQT=$ERROR_HR_SCRIQT_NOT
+fi
+
+if [[ ! $HR_SCRIQT = $ERROR_HR_SCRIQT_NOT ]]; then
+	alias hr="$HR_SCRIQT restart"
+	alias hrstart="$HR_SCRIQT start"
+	alias hrstop="$HR_SCRIQT stop"
+	alias hrstatus="$HR_SCRIQT status"
+else
+	alias hr="$HR_SCRIQT"
+	alias hrstart="$HR_SCRIQT"
+	alias hrstop="$HR_SCRIQT"
+	alias hrstatus="$HR_SCRIQT"
+fi
