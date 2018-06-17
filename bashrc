@@ -145,3 +145,12 @@ else
 	alias hrstop="$HR_SCRIQT"
 	alias hrstatus="$HR_SCRIQT"
 fi
+
+alias remake="rm -rf CMakeCache.txt CMakeFiles && cmake . && make install -j3"
+
+# make time check
+SRC_MAKETIME=$(ll /home/cit/robocup/for2050/src/ | grep CMakeFiles | awk '{print $6, $7, $8}')
+HR_MAKETIME=$(ll /home/cit/robocup/for2050/src/hr46_b3m | grep CMakeFiles | awk '{print $6, $7, $8}')
+
+echo "src make time $SRC_MAKETIME"
+echo "hr make time $HR_MAKETIME"
