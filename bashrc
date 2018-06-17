@@ -149,8 +149,16 @@ fi
 alias remake="rm -rf CMakeCache.txt CMakeFiles && cmake . && make install -j3"
 
 # make time check
-SRC_MAKETIME=$(ll /home/cit/robocup/for2050/src/ | grep CMakeFiles | awk '{print $6, $7, $8}')
-HR_MAKETIME=$(ll /home/cit/robocup/for2050/src/hr46_b3m | grep CMakeFiles | awk '{print $6, $7, $8}')
+if [[ $HOSTNAME = cit14[0-9] ]]; then
+	HR_NAME="hr46_rs"
+elif [[ $HOSTNAME = cit16[0-9] ]]; then
+	HR_NAME="hr46_b3m"
+fi
 
-echo "src make time $SRC_MAKETIME"
-echo "hr make time $HR_MAKETIME"
+SRC_MAKETIME=$(ls -l --full-time /home/cit/robocup/for2050/src/ | grep CMakeFiles | awk '{print $6, $7}' | sed "s/\.[0-9]*//g")
+HR_MAKETIME=$(ls -l --full-time /home/cit/robocup/for2050/src/$HR_NAME | grep CMakeFiles | awk '{print $6, $7}' | sed "s/\.[0-9]*//g")
+
+echo "src make time"
+echo $SRC_MAKETIME
+echo "$HR_NAME make time"
+echo $HR_MAKETIME
