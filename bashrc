@@ -179,7 +179,7 @@ function promps {
         *)      TITLEBAR="";;
     esac
     local BASE="\u@\h"
-    PS1="${TITLEBAR}${GREEN}${BASE}${WHITE}:${BLUE}\w${RED}\$(parse_git_branch)${BLUE}\$${WHITE} "#FULL PASS
-    #PS1="${TITLEBAR}${GREEN}${BASE}${WHITE}:${BLUE}\W${RED}\$(parse_git_branch)${BLUE}\$${WHITE} " #CURRENT DIR
+    PS1="${TITLEBAR}${GREEN}${BASE}${WHITE}:${BLUE}\w${RED}\$(parse_git_branch)${BLUE}\$${WHITE} "
+    #PS1="${TITLEBAR}${GREEN}${BASE}${WHITE}:${BLUE}\W${RED}\$(parse_git_branch)${BLUE}\$${WHITE} "
 }
 promps
