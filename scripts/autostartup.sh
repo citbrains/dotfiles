@@ -34,6 +34,8 @@ time_setup () {
 }
 
 wifi_setup () {
+	/bin/sleep 5
+
 	# Power management OFF
 	/sbin/iw dev wlan0 set power_save off
 
