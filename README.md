@@ -13,3 +13,9 @@ $ ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 $ # VNC autostart
 $ ln -s ~/dotfiles/config/autostart ~/.config/
 ```
+### Script autostartup
+rc.local
+```
+# Script autostartup
+/home/cit/dotfiles/scripts/autostartup.sh
+```
