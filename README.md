@@ -17,5 +17,5 @@ $ ln -s ~/dotfiles/config/autostart ~/.config/
 rc.local
 ```
 # Script autostartup
-/home/cit/dotfiles/scripts/autostartup.sh
+/home/cit/dotfiles/scripts/autostartup.sh &
 ```
