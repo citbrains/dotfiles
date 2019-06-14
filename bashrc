@@ -119,8 +119,9 @@ fi
 export GIT_SSL_NO_VERIFY=1
 
 # CUDA
-export PATH="/usr/local/cuda-8.0/bin:$PATH"
-export LD_LIBRARY_PATH="/usr/local/cuda-8.0/lib64:$LD_LIBRARY_PATH"
+DARKNET_PATH=`cat /home/cit/darknet_path`
+export PATH="/usr/local/cuda/bin:$PATH"
+export LD_LIBRARY_PATH="$DARKNET_PATH:/usr/local/cuda/lib64:$LD_LIBRARY_PATH"
 
 # Alias
 alias cmakeclean='rm -r CMakeCache.txt cmake_install.cmake; rm -r CMakeFiles; rm Makefile'
