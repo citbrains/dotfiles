@@ -119,8 +119,9 @@ fi
 export GIT_SSL_NO_VERIFY=1
 
 # CUDA
-export PATH="/usr/local/cuda-8.0/bin:$PATH"
-export LD_LIBRARY_PATH="/usr/local/cuda-8.0/lib64:$LD_LIBRARY_PATH"
+DARKNET_PATH=`cat /home/cit/darknet_path`
+export PATH="/usr/local/cuda/bin:$PATH"
+export LD_LIBRARY_PATH="$DARKNET_PATH:/usr/local/cuda/lib64:$LD_LIBRARY_PATH"
 
 # Alias
 alias cmakeclean='rm -r CMakeCache.txt cmake_install.cmake; rm -r CMakeFiles; rm Makefile'
@@ -162,3 +163,24 @@ echo "src make time"
 echo $SRC_MAKETIME
 echo "$HR_NAME make time"
 echo $HR_MAKETIME
+
+
+function parse_git_branch {
+    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [\1]/'
+}
+function promps {
+    local  BLUE="\[\e[1;34m\]"
+    local  RED="\[\e[1;31m\]"
+    local  GREEN="\[\e[1;32m\]"
+    local  WHITE="\[\e[00m\]"
+    local  GRAY="\[\e[1;37m\]"
+
+    case $TERM in
+        xterm*) TITLEBAR='\[\e]0;\W\007\]';;
+        *)      TITLEBAR="";;
+    esac
+    local BASE="\u@\h"
+    PS1="${TITLEBAR}${GREEN}${BASE}${WHITE}:${BLUE}\w${RED}\$(parse_git_branch)${BLUE}\$${WHITE} "
+    #PS1="${TITLEBAR}${GREEN}${BASE}${WHITE}:${BLUE}\W${RED}\$(parse_git_branch)${BLUE}\$${WHITE} "
+}
+promps
