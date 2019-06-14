@@ -22,3 +22,10 @@ darknet_path
 ```
 /home/cit/darknet
 ```
+
+### Script autostartup
+rc.local
+```
+# Script autostartup
+/home/cit/dotfiles/scripts/autostartup.sh &
+```
