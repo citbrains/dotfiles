@@ -1,0 +1,12 @@
+[Unit]
+Description = Auto startups (cpu & time & wifi)
+
+[Service]
+Type = simple
+User = root
+Group = root
+KillMode = none
+ExecStart = /home/cit/dotfiles/scripts/autostartup.sh
+
+[Install]
+WantedBy = multi-user.target
