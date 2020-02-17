@@ -122,6 +122,7 @@ export GIT_SSL_NO_VERIFY=1
 DARKNET_PATH=`cat /home/cit/darknet_path`
 export PATH="/usr/local/cuda/bin:$PATH"
 export LD_LIBRARY_PATH="$DARKNET_PATH:/usr/local/cuda/lib64:$LD_LIBRARY_PATH"
+export EIGEN3_INCLUDE_DIR="/usr/include/eigen3"
 
 # Alias
 alias cmakeclean='rm -r CMakeCache.txt cmake_install.cmake; rm -r CMakeFiles; rm Makefile'

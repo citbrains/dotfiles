@@ -24,7 +24,7 @@ cpuon () {
 }
 
 jetson_clock () {
-	( /bin/sleep 60 && $HOME/jetson_clocks.sh )&
+	( /bin/sleep 60 && /usr/bin/jetson_clocks )&
 }
 
 time_setup () {
