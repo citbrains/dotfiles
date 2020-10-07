@@ -169,6 +169,10 @@ echo $HR_MAKETIME
 function parse_git_branch {
     git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [\1]/'
 }
+short_pwd() {
+	cwd=$(pwd | sed 's%'$HOME'%~%' | perl -F/ -ane 'print join( "/", map { $i++ < @F - 1 ?  substr $_,0,1 : $_ } @F)')
+	echo -n $cwd
+}
 function promps {
     local  BLUE="\[\e[1;34m\]"
     local  RED="\[\e[1;31m\]"
@@ -180,8 +184,9 @@ function promps {
         xterm*) TITLEBAR='\[\e]0;\W\007\]';;
         *)      TITLEBAR="";;
     esac
+
     local BASE="\u@\h"
-    PS1="${TITLEBAR}${GREEN}${BASE}${WHITE}:${BLUE}\w${RED}\$(parse_git_branch)${BLUE}\$${WHITE} "
+    PS1="${TITLEBAR}${GREEN}${BASE}${WHITE}:${BLUE}\$(short_pwd)${RED}\$(parse_git_branch)${BLUE}\$${WHITE} "
     #PS1="${TITLEBAR}${GREEN}${BASE}${WHITE}:${BLUE}\W${RED}\$(parse_git_branch)${BLUE}\$${WHITE} "
 }
 promps
