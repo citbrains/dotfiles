@@ -3,7 +3,7 @@
 ## Install
 ### clone
 ```bash
-$ git clone https://github.com/citbrains/dotfiles.git ~
+$ git clone -b JetPack4_3 https://github.com/citbrains/dotfiles.git ~/dotfiles
 ```
 ### Create a symbolic links
 ```bash
