@@ -1,0 +1,12 @@
+[Unit]
+Description = terminal startup
+
+[Service]
+Type = simple
+User = cit
+Group = cit
+KillMode = none
+ExecStart = /home/cit/dotfiles/scripts/gnome-terminal.sh
+
+[Install]
+WantedBy = multi-user.target

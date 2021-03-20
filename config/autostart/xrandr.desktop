@@ -1,9 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Application
-Name=XRANDR
-Comment=
-Exec=xrandr --fb 1650x950
-StartupNotify=false
-Terminal=false
-Hidden=false

@@ -1,9 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Application
-Name=TIMESET
-Comment=
-Exec=sudo /home/cit/dotfiles/scripts/timeset.sh
-StartupNotify=false
-Terminal=false
-Hidden=false

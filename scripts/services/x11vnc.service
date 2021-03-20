@@ -1,0 +1,13 @@
+[Unit]
+Description = x11vnc startup
+
+[Service]
+Type = simple
+User = cit
+Group = cit
+Restart = always
+KillMode = none
+ExecStart = /home/cit/dotfiles/scripts/x11vnc.sh
+
+[Install]
+WantedBy = multi-user.target

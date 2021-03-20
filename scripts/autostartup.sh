@@ -24,7 +24,7 @@ cpuon () {
 }
 
 jetson_clock () {
-	( /bin/sleep 60 && $HOME/jetson_clocks.sh )
+	( /bin/sleep 60 && /usr/bin/jetson_clocks )&
 }
 
 time_setup () {
@@ -34,8 +34,6 @@ time_setup () {
 }
 
 wifi_setup () {
-	/bin/sleep 5
-
 	# Power management OFF
 	/sbin/iw dev wlan0 set power_save off
 
@@ -44,14 +42,25 @@ wifi_setup () {
 	/sbin/iw phy0 set retry long 1
 }
 
+b3m_setup () {
+	modprobe ftdi_sio
+	echo "165c 0009" > /sys/bus/usb-serial/drivers/ftdi_sio/new_id
+}
+
+HPLStatusUI () {
+	/home/cit/robocup/for2050/src/pyfiles/pythonlauncher.sh &
+}
+
 root_check
 
 # System startup wait time.
-/bin/sleep 3
+/bin/sleep 10
 
-cpuon &
-#jetson_clock &
+cpuon
+#jetson_clock
 time_setup &
 wifi_setup &
+b3m_setup
+HPLStatusUI
 
 exit 0
